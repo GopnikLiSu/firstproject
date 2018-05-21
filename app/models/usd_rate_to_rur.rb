@@ -1,0 +1,2 @@
+class UsdRateToRur < ApplicationRecord
+end
