@@ -7,27 +7,23 @@ class UpdateUsdRurRate < ApplicationJob
       url = URI.parse('http://www.cbr-xml-daily.ru/daily_json.js')
       req = Net::HTTP::Get.new(url.to_s)
       # REVU: The same thing about brackets vs do-end
-      res = Net::HTTP.start(url.host, url.port) {|http|
+      res = Net::HTTP.start(url.host, url.port) do |http|
         http.request(req)
-      }
+      end
       hash = JSON.parse(res.body)
       # REVU: Use '' instead of "" when interpolation is not used
       rate = hash["Valute"]["USD"]["Value"]
 
       # REVU: 1.day sounds better than 1.days =)
-      if (Time.now - Usd.order(:created_at).last.created_at) > 1.days
+      if (Time.now - Usd.order(:created_at).last.created_at) > 1.day
         usd = Usd.new
         usd.rate = rate
         usd.date = Time.now
         # REVU: Consider using save! method when you don't need the result of save
         # REVU: save return boolean value telling us whether saving was successful or not
-        usd.save
+        usd.save!
       end
       # REVU: Do not rescue Exception, it is global exception that does not provide any information
       # REVU: The more strict exception is, the more it's valuable
-    rescue Exception => e
-      # REVU: Do we buy something? O_o
-      Rails.logger.info "Buy good: error in ensure block #{e.message}"
-    end
   end
 end

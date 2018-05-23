@@ -21,14 +21,14 @@ development:
 # REVU: YAML parser will consider configuration below as a set of parameters for development configuration
 # REVU: Keep an eye on spaces when using YAML
 
-  test:
-    adapter: postgresql
-    encoding: unicode
-    database: Firstproject_test
-    pool: 5
-    username: user
-    password: 1234
-    host: localhost
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: Firstproject_test
+  pool: 5
+  username: user
+  password: 1234
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
