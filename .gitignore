@@ -20,6 +20,8 @@
 # Ignore uploaded files in development
 /storage/*
 
+# REVU: Consider adding some entries specific for environment like .DS_Store, /.idea
+
 /node_modules
 /yarn-error.log
 
