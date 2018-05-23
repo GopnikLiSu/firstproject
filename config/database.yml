@@ -14,8 +14,8 @@ development:
   encoding: unicode
   database: Firstproject_development
   pool: 5
-  username: user
-  password: 1234
+  # username: user
+  # password: 1234
   host: localhost
 
 # REVU: YAML parser will consider configuration below as a set of parameters for development configuration
@@ -26,8 +26,8 @@ test:
   encoding: unicode
   database: Firstproject_test
   pool: 5
-  username: user
-  password: 1234
+  # username: user
+  # password: 1234
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
