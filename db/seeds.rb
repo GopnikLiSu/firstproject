@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# REVU: Always create here some models with initial values
+# REVU: If the server is freshly deployed with clear database, how will your application act? Exception causing 500 error?
+# REVU: In this case, few entries of Usd class with some initial values are pretty enough

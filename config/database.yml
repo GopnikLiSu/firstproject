@@ -18,6 +18,9 @@ development:
   password: 1234
   host: localhost
 
+# REVU: YAML parser will consider configuration below as a set of parameters for development configuration
+# REVU: Keep an eye on spaces when using YAML
+
   test:
     adapter: postgresql
     encoding: unicode
