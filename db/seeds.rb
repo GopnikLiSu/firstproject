@@ -15,3 +15,16 @@ Usd.create([
     { rate: 61.0000, date: Time.now - 1.days },
     { rate: 59.0000, date: Time.now }
   ])
+
+User.create([
+
+  
+  ])
+
+
+Rate.create([
+    { rate: 60.0000, curr_1: 'USD', curr_2: 'RUR'},
+    { rate: 70.0000, curr_1: 'EUR', curr_2: 'RUR'},
+    { rate: 10.0000, curr_1: 'CNY', curr_2: 'RUR'},
+    { rate: 0.5600, curr_1: 'JPY', curr_2: 'RUR'}
+  ])
