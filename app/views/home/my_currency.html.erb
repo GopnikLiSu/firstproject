@@ -10,11 +10,14 @@
       ty pidor <br>
     <% end %>
 
+    <!--REVU: Use each-->
+
     <% @user_rates.count.times do |i| %>
       <% @w = @user_rates[i] %>
       <%= @w.curr_1 %> to
       <%= @w.curr_2 %> is
       <%= @w.rate %> <br>
     <% end %>
+
   </body>
 </html>
