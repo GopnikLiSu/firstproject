@@ -6,7 +6,7 @@ class UpdateUsdRurRate < ApplicationJob
   def perform
     if (Time.now - Usd.order(:created_at).last.created_at) > 1.day
       begin
-        url = URI.parse('https://www.cbr-xml-daily.ru/daily_json.js')
+        url = URI.parse('http://www.cbr-xml-daily.ru/daily_json.js')
         req = Net::HTTP::Get.new(url.to_s)
         # REVU: The same thing about brackets vs do-end
         res = Net::HTTP.start(url.host, url.port) do |http|
@@ -14,9 +14,7 @@ class UpdateUsdRurRate < ApplicationJob
         end
         hash = JSON.parse(res.body)
         # REVU: Use '' instead of "" when interpolation is not used
-        rate = hash["Valute"]["USD"]["Value"]
-
-        # REVU: 1.day sounds better than 1.days =)
+        rate = hash['Valute']['USD']['Value']
 
         usd = Usd.new
         usd.rate = rate
