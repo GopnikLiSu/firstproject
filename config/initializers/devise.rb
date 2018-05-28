@@ -9,8 +9,6 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
 
-
-  # REVU: Do not contain secret keys in project files
   config.secret_key = '0bb76bf48f649226595841c9017f183cc57fd8c2034fb9ca8fd82e03b2c481261887b69d39f58d53408b99ed67c621bd8ee54d6aafa52b7d25202532d6a6533e'
 
   # ==> Controller configuration

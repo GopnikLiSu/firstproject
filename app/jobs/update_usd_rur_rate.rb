@@ -13,18 +13,13 @@ class UpdateUsdRurRate < ApplicationJob
           http.request(req)
         end
         hash = JSON.parse(res.body)
-        # REVU: Use '' instead of "" when interpolation is not used
         rate = hash['Valute']['USD']['Value']
 
         usd = Usd.new
         usd.rate = rate
         usd.date = Time.now
-        # REVU: Consider using save! method when you don't need the result of save
-        # REVU: save return boolean value telling us whether saving was successful or not
         usd.save!
       end
-      # REVU: Do not rescue Exception, it is global exception that does not provide any information
-      # REVU: The more strict exception is, the more it's valuable
     end
   end
 end

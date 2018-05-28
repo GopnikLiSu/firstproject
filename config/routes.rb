@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   # REVU: Use resource naming style
   # REVU: home/my_currency => /currencies
   # REVU: If currency is specified => /currencies/usd
-
-  get 'home/my_currency' => 'home#my_currency'
+  get 'currencies' => 'home#currencies'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
