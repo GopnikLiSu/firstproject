@@ -11,12 +11,16 @@ class HomeController < ApplicationController
 
   def currencies
     @user = current_user
-    #user.rates.delete(user.rates.last)
-    @user.rates << Rate.last(5)
-    if @user.rates.count == 0
+    @user.rates.delete(@user.rates.all)
+    r = Rate.order(:created_at).last(4)
+    sub = @user.subscribes
+    output = []
+    sub.each{|w| output << r.detect{|v| v.curr_1 == w[0] && v.curr_2 == w[1] }}
+    #@user.rates << output
+    if output.count == 0
       @user_rates = Rate.last(5)
     else
-      @user_rates = @user.rates
+      @user_rates = output
     end
   end
 end

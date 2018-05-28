@@ -38,6 +38,7 @@ class UpdateRate < ApplicationJob
         eur_rur.curr_1 = 'JPY'
         eur_rur.curr_2 = 'RUR'
         eur_rur.save!
+
     end
   end
 end
