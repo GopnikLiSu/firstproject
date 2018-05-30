@@ -9,6 +9,12 @@
 <% @users.each do |user| %>
   <%= user.email %>
   <%= link_to 'Login As', masquerade_path(user) %>
+  <%= form_tag('/suspended_box_submit', method: 'POST' ) do %>
+    <%= hidden_field_tag(:user_id, user.id) %>
+    <%= check_box_tag(:suspended, "1", user.suspended, :class => 'vz-u-table-checkbox') %>
+    <%= label_tag("", "Suspended") %>
+    <%= submit_tag("Сlick here to confirm") %>
+  <% end %>
   </br>
 <% end %>
 
