@@ -42,3 +42,4 @@ class UpdateRate < ApplicationJob
     end
   end
 end
+C

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Firstproject</title>
+</head>
+
+<body>
+<h1>Admin Control Page!</h1>
+<% @users.each do |user| %>
+  <%= user.email %>
+  <%= link_to 'Login As', masquerade_path(user) %>
+  </br>
+<% end %>
+
+<%= paginate @users %>
+</body>
+</html>

@@ -12,7 +12,7 @@ class HomeController < ApplicationController
   def currencies
     #Вытащить это в хэлпер, чтобы не засорять контроллер
     @user = current_user
-    @user.rates.delete(@user.rates.all)
+    #@user.rates.delete(@user.rates.all)
     r = Rate.order(:created_at).last(4)
     sub = @user.subscribes
     output = []
