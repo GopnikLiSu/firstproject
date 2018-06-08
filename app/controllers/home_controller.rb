@@ -17,11 +17,23 @@ class HomeController < ApplicationController
     sub = @user.subscribes
     output = []
     sub.each{|w| output << r.detect{|v| v.curr_1 == w.first && v.curr_2 == w[1] }}
-    #@user.rates << output
     if output.count == 0
       @user_rates = Rate.last(5)
     else
       @user_rates = output
     end
+  end
+
+  def settings
+    @subs = CurrencySubscribe.all
+  end
+
+  def change_settings
+    #You need to REQUIRE ADMIN to use this method!
+    current_user.subscribes = User.where(:id => params["user_id"]).last
+    sub = params['subscribed'] || false
+    user.save!
+
+    redirect_to '/currencies/settings'
   end
 end

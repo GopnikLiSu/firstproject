@@ -1,0 +1,2 @@
+class CurrencySubscribe < ApplicationRecord
+end

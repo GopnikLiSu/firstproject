@@ -21,10 +21,18 @@ User.create([
   
   ])
 
+CurrencySubscribe.create([
+    #numerator and denominator in fraction, for example the first one is rur/usd = 60/1
+    { currency_denominator: 'USD', currency_numerator: 'RUR'},
+    { currency_denominator: 'EUR', currency_numerator: 'RUR'},
+    { currency_denominator: 'CNY', currency_numerator: 'RUR'},
+    { currency_denominator: 'JPY', currency_numerator: 'RUR'}
+                         ])
+
 
 Rate.create([
     { rate: 60.0000, curr_1: 'USD', curr_2: 'RUR'},
     { rate: 70.0000, curr_1: 'EUR', curr_2: 'RUR'},
     { rate: 10.0000, curr_1: 'CNY', curr_2: 'RUR'},
     { rate: 0.5600, curr_1: 'JPY', curr_2: 'RUR'}
-  ])
+            ])

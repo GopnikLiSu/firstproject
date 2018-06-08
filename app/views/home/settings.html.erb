@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Firstproject</title>
+</head>
+
+<body>
+<h1>Subscribes</h1>
+<%= form_tag('/subscribes_box_submit', method: 'POST' ) do %>
+  <% @subs.each do |sub| %>
+    <%= hidden_field_tag(:sub_id, sub.id) %>
+    <%= sub.currency_denominator %> ->
+    <%= sub.currency_numerator %>
+    <%= check_box_tag(:subscribed, sub, check_sub(sub.id)) %>
+    <%= label_tag("", "Subscribe") %>
+    </br>
+  <% end %>
+  <%= submit_tag("Сlick here to confirm") %>
+<% end %>
+</body>
+</html>
